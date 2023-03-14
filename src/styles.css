@@ -83,8 +83,14 @@ body {
 .game {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.game-board {
+  margin-bottom: 1em;
+  flex: none;
 }
 
 .game-info {
-  margin-left: 20px;
+  margin-left: 1em;
 }
