@@ -35,7 +35,6 @@ export default function Game() {
   const moves = history.map((squares, move) => {
     let description
     let realMove = parseInt(squares.move) + 1
-    console.log(squares, realMove)
     if(move === currentMove) {
       return (
         <li key={move}>
@@ -62,11 +61,11 @@ export default function Game() {
         <Board xIsNext={xIsNext} squares={currentSquares.board} history={history} onPlay={handlePlay} />
       </div>
       <div className="game-info">
-        <ol reversed={historyDirection}>{historyDirection ? moves : moves.reverse()}</ol>
-      </div>
-      <div className="game-actions">
-        {`History direction: `}
-        <button onClick={() => setHistoryDirection(!historyDirection)}>{historyDirection ? `Top to bottom` : `Bottom to top`}</button>
+        <div className="game-actions">
+          {`Toggle history direction: `}
+          <button onClick={() => setHistoryDirection(!historyDirection)}>{historyDirection ? `Bottom to top` : `Top to bottom`}</button>
+        </div>
+        <ol reversed={!historyDirection}>{historyDirection ? moves : moves.reverse()}</ol>
       </div>
     </div>
   );
